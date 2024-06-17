@@ -29,6 +29,20 @@
         };
     };
 
+    macros {
+        macro_jump: macro_jump {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap_time 1200>,
+                <&kp LEFT_ALT>,
+                <&macro_tap_time 30>,
+                <&kp SPACE>;
+
+            label = "MACRO_JUMP";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -95,10 +109,10 @@
 
         overwatch {
             bindings = <
-&kp TAB   &trans  &trans  &trans    &trans     &kp ESC    &trans  &trans  &trans  &trans  &trans  &trans
-&kp CAPS  &trans  &trans  &trans    &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans
-&trans    &trans  &trans  &trans    &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans
-                          &sk LALT  &kp SPACE  &trans     &trans  &to 0   &trans
+&kp TAB   &trans  &trans  &trans       &trans     &kp ESC    &trans  &trans  &trans  &trans  &trans  &trans
+&kp CAPS  &trans  &trans  &trans       &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans
+&trans    &trans  &trans  &trans       &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans
+                          &macro_jump  &kp SPACE  &trans     &trans  &to 0   &trans
             >;
         };
     };
